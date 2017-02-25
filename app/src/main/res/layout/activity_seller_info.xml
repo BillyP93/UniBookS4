@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_seller_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ibrahim.unibook.SellerInfo">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/add_btn"
+        android:layout_alignParentTop="true"
+        android:id="@+id/singleBookImage"
+        android:layout_alignParentStart="true"
+        android:background="#00ffffff"
+        android:src="@mipmap/add_btn"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_outline"
+        android:layout_below="@+id/singleBookImage"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/titleField"
+        android:hint="Book Title"
+        android:singleLine="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_outline"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/titleField"
+        android:padding="15dp"
+        android:id="@+id/descField"
+        android:layout_alignParentStart="true"
+        android:hint="Book Description" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/input_outline"
+        android:layout_alignParentStart="true"
+        android:padding="15dp"
+        android:ems="10"
+        android:layout_above="@+id/submitBtn"
+        android:layout_alignStart="@+id/descField"
+        android:layout_marginBottom="17dp"
+        android:id="@+id/priceField"
+        android:hint="Price"
+        android:singleLine="true" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/submitBtn"
+        android:textColor="@color/cardview_light_background" />
+
+
+
+
+</RelativeLayout>

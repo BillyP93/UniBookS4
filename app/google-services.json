@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "873079596444",
+    "firebase_url": "https://unibook-d537d.firebaseio.com",
+    "project_id": "unibook-d537d",
+    "storage_bucket": "unibook-d537d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873079596444:android:16e17e54c8dab35e",
+        "android_client_info": {
+          "package_name": "com.example.ibrahim.unibook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873079596444-5rci1clkq8563kje064f5d975kbvj54k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ibrahim.unibook",
+            "certificate_hash": "89995F0AB0E0AF2184D3E2115E9ECACC4E3720B1"
+          }
+        },
+        {
+          "client_id": "873079596444-k4e8dn68pso5pb6q8n6f5a3brnctc1da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGk2olZyVEVPkBuHAwZnMCRKkUSFlWBAY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873079596444-k4e8dn68pso5pb6q8n6f5a3brnctc1da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
