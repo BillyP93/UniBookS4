@@ -42,7 +42,8 @@ public class BookSingleActivity extends AppCompatActivity {
                     startActivity(new Intent(BookSingleActivity.this, MainActivity.class));
                 }
                 else if(item.getItemId()==R.id.action_chat){
-                    startActivity(new Intent(BookSingleActivity.this, ChatActivity.class));
+                    startActivity(new Intent(BookSingleActivity.this, Login.class));
+                    //startActivity(new Intent(BookSingleActivity.this, ChatActivity.class));
                 }
                 else if(item.getItemId()==R.id.action_map){
                     startActivity(new Intent(BookSingleActivity.this, MapsActivity.class));
