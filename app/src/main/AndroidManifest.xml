@@ -43,7 +43,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ChatActivity"></activity>
+
+        <activity android:name=".Register" />
+        <activity android:name=".Users" />
+        <activity android:name=".ChatActivity" />
     </application>
 
 </manifest>
