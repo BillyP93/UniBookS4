@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mBookList =(RecyclerView)findViewById(R.id.book_list);
         mBookList.setHasFixedSize(true);
         mBookList.setLayoutManager(new LinearLayoutManager(this));
-
+//Hello there
 
     }
 
