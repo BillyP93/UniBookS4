@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -21,14 +22,19 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mBookList;
     private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Blog");
+        mDatabase.keepSynced(true);
         mBookList =(RecyclerView)findViewById(R.id.book_list);
         mBookList.setHasFixedSize(true);
         mBookList.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
 
     public void onStart(){
