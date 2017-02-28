@@ -40,7 +40,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Register.class));
-                Toast.makeText(Login.this, "This is a test", Toast.LENGTH_SHORT).show();
             }
         });
 
