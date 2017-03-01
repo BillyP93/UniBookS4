@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     ﻿
 
     <!--
@@ -39,7 +40,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="@string/google_place_api" />
 
         <activity
             android:name=".MapsActivity"
@@ -48,6 +49,7 @@
         <activity android:name=".Register" />
         <activity android:name=".Users" />
         <activity android:name=".ChatActivity" />
+        <activity android:name=".PickplaceActivity"/>
     </application>
 
 </manifest>

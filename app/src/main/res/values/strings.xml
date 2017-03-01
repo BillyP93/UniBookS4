@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">UniBooK</string>
     <string name="title_activity_maps">Map</string>
+    <string name="google_place_api">AIzaSyDAJ8QU1_CSnJE89pcJpllM8OJAjquj3xk</string>
 </resources>
