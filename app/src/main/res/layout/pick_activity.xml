@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="TextView"
+        android:text="Get Place"
         android:layout_width="254dp"
         android:layout_height="91dp"
         android:id="@+id/textView"
