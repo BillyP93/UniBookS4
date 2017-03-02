@@ -9,8 +9,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import android.content.Context;
+import android.widget.Toast;
 
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.firebase.client.Firebase;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -35,7 +40,8 @@ public class PickplaceActivity extends AppCompatActivity {
         setContentView(R.layout.pick_activity);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
-         database = FirebaseDatabase.getInstance();
+       // Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
+        // database = FirebaseDatabase.getInstance();
 
 
         getplace = (TextView)findViewById(R.id.textView);
@@ -58,6 +64,9 @@ public class PickplaceActivity extends AppCompatActivity {
                     ex.printStackTrace();
                 }
 
+
+
+
             }
         });
 
@@ -72,15 +81,33 @@ public class PickplaceActivity extends AppCompatActivity {
                 Place place = PlacePicker.getPlace(data,this);
                 String address = String.format("Place: %s",place.getAddress());
                 getplace.setText(address);
-                DatabaseReference myRef = database.getReference("places");
-                myRef.child((String) getplace.getText());
-            }
 
+                String url = "https://unibook-d537d.firebaseio.com/places.json";
+
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String s) {
+                        Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
+
+
+                        reference.child((String) getplace.getText()).setValue("place chosen");
+
+                    }
+
+
+                //DatabaseReference myRef = database.getReference("places");
+
+                //myRef.child((String) getplace.getText());
+
+
+            },new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        System.out.println("" + volleyError );
+                        //pd.dismiss();
+                    }
+                });
         }
     }
-
-
-
-
-
+}
 }

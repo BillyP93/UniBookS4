@@ -75,14 +75,14 @@ public class Register extends AppCompatActivity {
                     String url = "https://unibook-d537d.firebaseio.com/users.json";
 
                     StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
-                        @Override
-                        public void onResponse(String s) {
-                            Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/users");
+                                @Override
+                                public void onResponse(String s) {
+                                    Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/users");
 
-                            if(s.equals("null")) {
-                                reference.child(user).child("password").setValue(pass);
-                                Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                            }
+                                    if(s.equals("null")) {
+                                        reference.child(user).child("password").setValue(pass);
+                                        Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
+                                    }
                             else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
