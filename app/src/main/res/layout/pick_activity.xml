@@ -9,5 +9,7 @@
         android:layout_width="254dp"
         android:layout_height="91dp"
         android:id="@+id/textView"
-        tools:text="Get Place" />
+        tools:text="Get Place"
+        android:textSize="25sp"
+        />
 </LinearLayout>

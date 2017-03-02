@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/book_image"
             android:src="@mipmap/add_btn"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:adjustViewBounds="true" />
         <TextView
             android:layout_width="match_parent"

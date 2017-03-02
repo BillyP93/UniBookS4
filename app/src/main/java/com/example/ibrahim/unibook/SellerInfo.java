@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class SellerInfo extends AppCompatActivity {
 
@@ -102,9 +104,24 @@ public class SellerInfo extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==GALLERY_REQUEST && resultCode==RESULT_OK){
             mImageUri =data.getData();
-            mSelectImage.setImageURI(mImageUri);
 
 
+            CropImage.activity(mImageUri)
+                    .setGuidelines(CropImageView.Guidelines.ON)
+                    .setAspectRatio(1, 1)
+                    .start(this);
+
+
+        }
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri resultUri = result.getUri();
+                mSelectImage.setImageURI(resultUri);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
     }
 }
