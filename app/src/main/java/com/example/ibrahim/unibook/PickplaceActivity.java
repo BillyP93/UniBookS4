@@ -90,7 +90,7 @@ public class PickplaceActivity extends AppCompatActivity {
                         Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
 
 
-                        reference.child((String) getplace.getText()).setValue("place chosen");
+                        reference.push().setValue(getplace.getText());
 
                     }
 
