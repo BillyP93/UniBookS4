@@ -11,10 +11,13 @@ import android.widget.TextView;
 import android.content.Context;
 
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Billy on 3/1/2017.
@@ -24,6 +27,7 @@ public class PickplaceActivity extends AppCompatActivity {
 
     private TextView getplace;
     int PLACE_PICKER_REQUEST=1;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,9 @@ public class PickplaceActivity extends AppCompatActivity {
         setContentView(R.layout.pick_activity);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  setSupportActionBar(toolbar);
+         database = FirebaseDatabase.getInstance();
+
+
         getplace = (TextView)findViewById(R.id.textView);
         getplace.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +72,8 @@ public class PickplaceActivity extends AppCompatActivity {
                 Place place = PlacePicker.getPlace(data,this);
                 String address = String.format("Place: %s",place.getAddress());
                 getplace.setText(address);
-
+                DatabaseReference myRef = database.getReference("places");
+                myRef.child((String) getplace.getText());
             }
 
         }
