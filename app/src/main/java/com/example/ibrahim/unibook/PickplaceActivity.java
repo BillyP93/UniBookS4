@@ -24,6 +24,9 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Billy on 3/1/2017.
  */
@@ -33,6 +36,7 @@ public class PickplaceActivity extends AppCompatActivity {
     private TextView getplace;
     int PLACE_PICKER_REQUEST=1;
     private FirebaseDatabase database;
+    Firebase reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,8 @@ public class PickplaceActivity extends AppCompatActivity {
       //  setSupportActionBar(toolbar);
        // Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
         // database = FirebaseDatabase.getInstance();
-
+        Firebase.setAndroidContext(this);
+         reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
 
         getplace = (TextView)findViewById(R.id.textView);
         getplace.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +56,14 @@ public class PickplaceActivity extends AppCompatActivity {
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
 
                 Intent intent;
+
+                String messageText = getplace.getText().toString();
+
+                if(!messageText.equals("")){
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("places", messageText);
+                    //reference.push().setValue(map);
+                }
 
                 try {
                     intent = builder.build(PickplaceActivity.this);
@@ -81,32 +94,32 @@ public class PickplaceActivity extends AppCompatActivity {
                 Place place = PlacePicker.getPlace(data,this);
                 String address = String.format("Place: %s",place.getAddress());
                 getplace.setText(address);
-
-                String url = "https://unibook-d537d.firebaseio.com/places.json";
-
-                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
-                    @Override
-                    public void onResponse(String s) {
-                        Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
-
-
-                        reference.push().setValue(getplace.getText());
-
-                    }
-
-
-                //DatabaseReference myRef = database.getReference("places");
-
-                //myRef.child((String) getplace.getText());
-
-
-            },new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        System.out.println("" + volleyError );
-                        //pd.dismiss();
-                    }
-                });
+                reference.push().setValue(address);
+//                String url = "https://unibook-d537d.firebaseio.com/places.json";
+//
+//                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+//                    @Override
+//                    public void onResponse(String s) {
+//                        Firebase reference = new Firebase("https://unibook-d537d.firebaseio.com/places");
+//
+//
+//                        reference.push().setValue(getplace.getText());
+//
+//                    }
+//
+//
+//                //DatabaseReference myRef = database.getReference("places");
+//
+//                //myRef.child((String) getplace.getText());
+//
+//
+//            },new Response.ErrorListener(){
+//                    @Override
+//                    public void onErrorResponse(VolleyError volleyError) {
+//                        System.out.println("" + volleyError );
+//                        //pd.dismiss();
+//                    }
+//                });
         }
     }
 }
